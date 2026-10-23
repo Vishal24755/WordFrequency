@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App 03: Word Frequency Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-icon">📊</div>
+      <div>
+        <h1>Word Frequency Analyzer</h1>
+        <p class="subtitle">Analyze word occurrences, discover top keywords, and view visual frequency charts.</p>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <div class="card">
+        <label for="textInput" class="form-label">Input Paragraph:</label>
+        <textarea id="textInput" class="form-textarea" rows="7" placeholder="Enter or paste a paragraph to analyze word frequencies..."></textarea>
+
+        <div class="options-box">
+          <label class="checkbox-label">
+            <input type="checkbox" id="chkStopwords" checked>
+            <span>Ignore common stop words (e.g., the, a, is, in, at, of, and)</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="chkCase" checked>
+            <span>Case-insensitive (treat "Text" and "text" as the same word)</span>
+          </label>
+        </div>
+
+        <div class="button-row">
+          <button id="btnAnalyze" class="btn btn-primary">Analyze Frequency</button>
+          <button id="btnSample" class="btn btn-secondary">Load Sample Text</button>
+          <button id="btnClear" class="btn btn-outline-danger">Clear</button>
+        </div>
+
+        <div id="toast" class="toast"></div>
+
+        <!-- Results section -->
+        <div id="resultsSection" class="results-section" style="display: none;">
+          <!-- Summary Cards -->
+          <div class="summary-cards">
+            <div class="summary-card">
+              <span class="summary-val" id="totalWords">0</span>
+              <span class="summary-lbl">Total Words Analyzed</span>
+            </div>
+            <div class="summary-card">
+              <span class="summary-val" id="uniqueWords">0</span>
+              <span class="summary-lbl">Unique Words</span>
+            </div>
+            <div class="summary-card">
+              <span class="summary-val" id="lexicalDiversity">0%</span>
+              <span class="summary-lbl">Vocabulary Diversity</span>
+            </div>
+          </div>
+
+          <!-- Top 10 Words Bar Chart -->
+          <div class="chart-container">
+            <h2 class="section-title">Top 10 Most Frequent Words (Bar Chart)</h2>
+            <div id="barChart" class="bar-chart">
+              <!-- Dynamically rendered horizontal bars -->
+            </div>
+          </div>
+
+          <!-- Full Sorted Word Table -->
+          <h2 class="section-title">Complete Sorted Frequency Table</h2>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 80px;">Rank</th>
+                  <th>Word</th>
+                  <th style="width: 130px;">Occurrences</th>
+                  <th style="width: 130px;">Percentage</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>App 03: Word Frequency Analyzer &bull; Part of Text and Speech Analysis Suite</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
